@@ -1,0 +1,70 @@
+[gd_scene load_steps=9 format=3 uid="uid://duakkb5xdexba"]
+
+[ext_resource type="PackedScene" uid="uid://bem8bi10sgsm8" path="res://scenes/idle_player.tscn" id="1_elqb8"]
+[ext_resource type="Texture2D" uid="uid://27n36ejs1aei" path="res://assets/astronauts_pics/stars.jpg" id="1_rvslj"]
+[ext_resource type="Texture2D" uid="uid://bffn1uqc7ewbq" path="res://assets/9689799.png" id="3_0bbpv"]
+
+[sub_resource type="WorldBoundaryShape2D" id="WorldBoundaryShape2D_elqb8"]
+distance = -207.23
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_elqb8"]
+size = Vector2(2879, 135)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rvslj"]
+size = Vector2(1628.45, 147.785)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_0bbpv"]
+size = Vector2(2890.04, 147.406)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_rarhs"]
+size = Vector2(1617, 160.573)
+
+[node name="Game" type="Node2D"]
+
+[node name="Stars" type="Sprite2D" parent="."]
+position = Vector2(1503.5, 930)
+scale = Vector2(0.960333, 0.830769)
+texture = ExtResource("1_rvslj")
+
+[node name="Player" parent="." instance=ExtResource("1_elqb8")]
+position = Vector2(944, 956)
+
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(1503, 931)
+scale = Vector2(5.13782, -16.0967)
+zoom = Vector2(0.4, 0.4)
+
+[node name="StaticBody2D" type="StaticBody2D" parent="."]
+position = Vector2(87, 419)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1396, 854)
+scale = Vector2(1, 0.994901)
+shape = SubResource("WorldBoundaryShape2D_elqb8")
+one_way_collision_margin = 0.0
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1417.5, 1388.5)
+shape = SubResource("RectangleShape2D_elqb8")
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(2933.1, 511.198)
+rotation = -1.57
+shape = SubResource("RectangleShape2D_rvslj")
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(1417, -362.125)
+scale = Vector2(0.998601, -0.839519)
+shape = SubResource("RectangleShape2D_0bbpv")
+
+[node name="CollisionShape2D5" type="CollisionShape2D" parent="StaticBody2D"]
+position = Vector2(-105.208, 509.505)
+rotation = -1.57035
+scale = Vector2(0.999999, 0.999999)
+shape = SubResource("RectangleShape2D_rarhs")
+
+[node name="Moon" type="Sprite2D" parent="."]
+position = Vector2(2298, 632)
+rotation = -2.93445
+scale = Vector2(0.4834, 0.488596)
+texture = ExtResource("3_0bbpv")

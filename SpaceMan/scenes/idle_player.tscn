@@ -1,0 +1,88 @@
+[gd_scene load_steps=10 format=3 uid="uid://bem8bi10sgsm8"]
+
+[ext_resource type="Texture2D" uid="uid://cowkqwaduv28f" path="res://assets/astronauts_pics/spaceboy_case.png" id="1_qlg0r"]
+[ext_resource type="Script" uid="uid://nwwpol5idrkf" path="res://scripts/player.gd" id="1_tuyoq"]
+[ext_resource type="Texture2D" uid="uid://dq7spdmgxh3dt" path="res://assets/astronauts_pics/spaceboy_point.png" id="3_fjrip"]
+[ext_resource type="Texture2D" uid="uid://3ee2mi24af8r" path="res://assets/astronauts_pics/spaceboy_swag.png" id="3_mg4iu"]
+[ext_resource type="Texture2D" uid="uid://2wira0ubna5r" path="res://assets/astronauts_pics/spaceboy_wingman.png" id="4_igd0i"]
+[ext_resource type="Texture2D" uid="uid://cwb5fxc0sn4ap" path="res://assets/astronauts_pics/spaceboy_joy.png" id="5_lj7os"]
+[ext_resource type="Texture2D" uid="uid://bn2suuhs0o4fs" path="res://assets/astronauts_pics/spaceboy_fly.png" id="5_ur7pv"]
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_y4r1p"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("4_igd0i")
+}],
+"loop": true,
+"name": &"DOWN",
+"speed": 5.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_ur7pv")
+}],
+"loop": true,
+"name": &"FLY",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("1_qlg0r")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_lj7os")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fjrip")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_mg4iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("4_igd0i")
+}, {
+"duration": 1.0,
+"texture": ExtResource("5_ur7pv")
+}],
+"loop": true,
+"name": &"IDLE",
+"speed": 7.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("5_lj7os")
+}],
+"loop": true,
+"name": &"JUMP",
+"speed": 2.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": ExtResource("3_mg4iu")
+}, {
+"duration": 1.0,
+"texture": ExtResource("3_fjrip")
+}],
+"loop": false,
+"name": &"WALK",
+"speed": 3.0
+}]
+
+[sub_resource type="CircleShape2D" id="CircleShape2D_d2wvv"]
+radius = 15.7635
+
+[node name="Idle_Player" type="CharacterBody2D"]
+script = ExtResource("1_tuyoq")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+position = Vector2(545, 294)
+sprite_frames = SubResource("SpriteFrames_y4r1p")
+animation = &"IDLE"
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="."]
+position = Vector2(524, 296)
+rotation = 3.1025
+scale = Vector2(-13.6486, -15.2428)
+shape = SubResource("CircleShape2D_d2wvv")
+one_way_collision_margin = 0.0
